@@ -1,17 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Method {
+class Method {
     private List<Parameter> parameterList;
     private TypeEnum returnType;
     private String name;
 
-    public Method () {
+    Method (String name) {
         parameterList = new ArrayList<>();
+        this.name = name;
     }
 
-    public void setReturnType (TypeEnum type) {
+    Method setReturnType (TypeEnum type) {
         returnType = type;
+        return this;
+    }
+
+    Method addParameter (Parameter parameter) {
+        parameterList.add(parameter);
+        return this;
     }
 
 }
