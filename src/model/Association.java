@@ -35,4 +35,7 @@ public class Association {
         return target;
     }
 
+    public String getId() {
+        return id;
+    }
 }
