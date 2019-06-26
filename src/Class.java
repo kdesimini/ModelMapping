@@ -26,4 +26,20 @@ public class Class {
     public void addSuperClass (Class someClass) {
         superClassesList.add(someClass);
     }
+
+    public List<Attribute> getAttributeList() {
+        return attributeList;
+    }
+
+    public List<Method> getMethodList() {
+        return methodList;
+    }
+
+    public List<Class> getSuperClassesList() {
+        return superClassesList;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
