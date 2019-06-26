@@ -21,4 +21,16 @@ public class Package {
         subPackageList.add(inputPackage);
 
     }
+    
+    public List<Class> getClassList() {
+        return classList;
+    }
+
+    public List<Package> getSubPackageList() {
+        return subPackageList;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

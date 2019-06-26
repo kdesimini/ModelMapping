@@ -21,4 +21,15 @@ class Method {
         return this;
     }
 
+    public List<Parameter> getParameterList() {
+        return parameterList;
+    }
+
+    public TypeEnum getReturnType() {
+        return returnType;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

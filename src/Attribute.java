@@ -15,4 +15,16 @@ public class Attribute {
         this.defaultValue = defaultValue;
         this.type = type;
     }
+
+    public Object getDefaultValue() {
+        return defaultValue;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public TypeEnum getType() {
+        return type;
+    }
 }
