@@ -1,1 +1,4 @@
-### Read me in progress.
+### ToDo:
+
+- [ ] Add String Builder Functionality
+- [ ] 
