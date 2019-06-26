@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26902d08-c560-4aee-a23e-3276d87a9702" name="Default Changelist" comment="">
+    <list default="true" id="26902d08-c560-4aee-a23e-3276d87a9702" name="Default Changelist" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Mapping.iml" afterPath="$PROJECT_DIR$/Mapping.iml" />
       <change beforePath="$PROJECT_DIR$/file.xmi" afterPath="$PROJECT_DIR$/file.xmi" />
-      <change beforePath="$PROJECT_DIR$/src/Attribute.java" afterPath="$PROJECT_DIR$/src/model/Property.java" />
-      <change beforePath="$PROJECT_DIR$/src/Class.java" afterPath="$PROJECT_DIR$/src/model/Class.java" />
-      <change beforePath="$PROJECT_DIR$/src/DirectionEnum.java" afterPath="$PROJECT_DIR$/src/model/enums/DirectionEnum.java" />
-      <change beforePath="$PROJECT_DIR$/src/FileWriter.java" afterPath="$PROJECT_DIR$/src/exporter/FileWriter.java" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Method.java" afterPath="$PROJECT_DIR$/src/model/Method.java" />
-      <change beforePath="$PROJECT_DIR$/src/Package.java" afterPath="$PROJECT_DIR$/src/model/Package.java" />
-      <change beforePath="$PROJECT_DIR$/src/Parameter.java" afterPath="$PROJECT_DIR$/src/model/Parameter.java" />
-      <change beforePath="$PROJECT_DIR$/src/Processor.java" afterPath="$PROJECT_DIR$/src/exporter/Processor.java" />
-      <change beforePath="$PROJECT_DIR$/src/TypeEnum.java" afterPath="$PROJECT_DIR$/src/model/enums/TypeEnum.java" />
-      <change beforePath="$PROJECT_DIR$/src/UML.java" afterPath="$PROJECT_DIR$/src/model/UML.java" />
-      <change beforePath="$PROJECT_DIR$/src/VisibilityEnum.java" afterPath="$PROJECT_DIR$/src/model/enums/VisibilityEnum.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored mask="*.iml" />
@@ -133,8 +121,8 @@
       <file leaf-file-name="Parameter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Parameter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="425">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -418,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561517427574</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactoring">
+      <created>1561567915527</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1561567915527</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -475,7 +470,8 @@
     <MESSAGE value="Add Getters." />
     <MESSAGE value="Create file writer class to handle writing string to file." />
     <MESSAGE value=" Refactoring to fix warnings." />
-    <option name="LAST_COMMIT_MESSAGE" value=" Refactoring to fix warnings." />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -708,8 +704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Parameter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
