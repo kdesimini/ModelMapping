@@ -6,8 +6,10 @@ public class Package {
     private List<Class> classList;
     private List<Package> subPackageList;
     private String name;
+    private String id;
 
     public Package(String name) {
+        id = Processor.uuidGenerator();
         this.name = name;
         classList = new ArrayList<>();
         subPackageList = new ArrayList<>();
@@ -32,5 +34,9 @@ public class Package {
 
     String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 }

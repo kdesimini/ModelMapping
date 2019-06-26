@@ -7,8 +7,10 @@ public class Class {
     private List<Method> methodList;
     private List<Class> superClassesList;
     private String name;
+    private String id;
 
     public Class(String name) {
+        id = Processor.uuidGenerator();
         this.name = name;
         attributeList = new ArrayList<>();
         methodList = new ArrayList<>();
@@ -41,5 +43,9 @@ public class Class {
 
     String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 }
