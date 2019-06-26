@@ -1,3 +1,9 @@
+import exporter.Processor;
+import model.*;
+import model.Class;
+import model.Package;
+import model.enums.DirectionEnum;
+import model.enums.TypeEnum;
 
 public class Main {
 
@@ -15,9 +21,9 @@ public class Main {
         someClassPackage.addClass(SomeClass2);
         someClassPackage.addClass(SomeClass3);
 
-        SomeClass.addAttribute(new Attribute("someAttribute", TypeEnum.Integer));
-        SomeClass2.addAttribute(new Attribute("someAttribute2", TypeEnum.Integer));
-        SomeClass3.addAttribute(new Attribute("someAttribute3",69 , TypeEnum.Integer));
+        SomeClass.addProperty(new Property("someAttribute", TypeEnum.Integer));
+        SomeClass2.addProperty(new Property("someAttribute2", TypeEnum.Integer));
+        SomeClass3.addProperty(new Property("someAttribute3",69 , TypeEnum.Integer));
 
 
         SomeClass.addMethod((new Method("someFunction").addParameter(new Parameter("someParameter", DirectionEnum.InOut, TypeEnum.Boolean))));

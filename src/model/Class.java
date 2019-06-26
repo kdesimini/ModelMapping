@@ -1,9 +1,13 @@
+package model;
+
+import exporter.Processor;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Class {
 
-    private List<Attribute> attributeList;
+    private List<Property> propertyList;
     private List<Method> methodList;
     private List<Class> superClassesList;
     private String name;
@@ -12,16 +16,16 @@ public class Class {
     public Class(String name) {
         id = Processor.uuidGenerator();
         this.name = name;
-        attributeList = new ArrayList<>();
+        propertyList = new ArrayList<>();
         methodList = new ArrayList<>();
         superClassesList = new ArrayList<>();
     }
 
-    void addAttribute(Attribute someAttribute) {
-        attributeList.add(someAttribute);
+    public void addProperty(Property someProperty) {
+        propertyList.add(someProperty);
     }
 
-    void addMethod(Method someMethod) {
+    public void addMethod(Method someMethod) {
         methodList.add(someMethod);
     }
 
@@ -29,11 +33,11 @@ public class Class {
         superClassesList.add(someClass);
     }
 
-    List<Attribute> getAttributeList() {
-        return attributeList;
+    public List<Property> getPropertyList() {
+        return propertyList;
     }
 
-    List<Method> getMethodList() {
+    public List<Method> getMethodList() {
         return methodList;
     }
 
@@ -41,7 +45,7 @@ public class Class {
         return superClassesList;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

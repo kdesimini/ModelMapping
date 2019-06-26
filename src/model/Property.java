@@ -1,4 +1,10 @@
-public class Attribute {
+package model;
+
+import exporter.Processor;
+import model.enums.TypeEnum;
+import model.enums.VisibilityEnum;
+
+public class Property {
 
     private Object defaultValue;
     private String name;
@@ -6,7 +12,7 @@ public class Attribute {
     private VisibilityEnum visibility;
     private String id;
 
-    Attribute(String name, TypeEnum type) {
+    public Property(String name, TypeEnum type) {
         id = Processor.uuidGenerator();
         this.name = name;
         this.defaultValue = null;
@@ -14,7 +20,7 @@ public class Attribute {
         this.visibility = VisibilityEnum.Public;
     }
 
-    Attribute(String name, TypeEnum type, VisibilityEnum visibility) {
+    public Property(String name, TypeEnum type, VisibilityEnum visibility) {
         id = Processor.uuidGenerator();
         this.name = name;
         this.defaultValue = null;
@@ -22,7 +28,7 @@ public class Attribute {
         this.visibility = visibility;
     }
 
-    public Attribute (String name, Object defaultValue, TypeEnum type) {
+    public Property(String name, Object defaultValue, TypeEnum type) {
         id = Processor.uuidGenerator();
         this.name = name;
         this.defaultValue = defaultValue;

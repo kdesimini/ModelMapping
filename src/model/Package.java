@@ -1,3 +1,7 @@
+package model;
+
+import exporter.Processor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +19,7 @@ public class Package {
         subPackageList = new ArrayList<>();
     }
 
-    void addClass(Class inputClass) {
+    public void addClass(Class inputClass) {
         classList.add(inputClass);
     }
 
@@ -24,15 +28,15 @@ public class Package {
 
     }
     
-    List<Class> getClassList() {
+    public List<Class> getClassList() {
         return classList;
     }
 
-    List<Package> getSubPackageList() {
+    public List<Package> getSubPackageList() {
         return subPackageList;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

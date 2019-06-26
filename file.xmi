@@ -1,22 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<xmi:XMI xmlns:uml='http://www.omg.org/spec/UML/20131001'
-xmlns:StandardProfile='http://www.omg.org/spec/UML/20131001/StandardProfile'
+<xmi:XMI xmlns:uml='http://www.omg.org/spec/model.UML/20131001'
+xmlns:StandardProfile='http://www.omg.org/spec/model.UML/20131001/StandardProfile'
 xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>
 <uml:Model xmi:type='uml:Model' xmi:id='eee_1045467100313_135436_1' name='Model'>
-<packagedElement xmi:type='uml:Package' xmi:id='544f0462-5724-4c2d-bf47-1d7404a66c6c' name='someClassPackage'>
-<packagedElement xmi:type='uml:Class' xmi:id='ee831343-8522-4ee1-b36b-a0fbc0cc5a61' name='SomeClass2'>
+<packagedElement xmi:type='uml:model.Package' xmi:id='544f0462-5724-4c2d-bf47-1d7404a66c6c' name='someClassPackage'>
+<packagedElement xmi:type='uml:model.Class' xmi:id='ee831343-8522-4ee1-b36b-a0fbc0cc5a61' name='SomeClass2'>
 </packagedElement>
-<ownedAttribute xmi:type='uml:Property' xmi:id='ff70eda5-c9cd-4c33-a0ad-b81348bf1324' name='someAttribute2' visibility='public'>
-<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#integer'/>
+<ownedAttribute xmi:type='uml:model.Property' xmi:id='ff70eda5-c9cd-4c33-a0ad-b81348bf1324' name='someAttribute2' visibility='public'>
+<type href='http://www.omg.org/spec/model.UML/20131001/PrimitiveTypes.xmi#integer'/>
 </ownedAttribute>
-<packagedElement xmi:type='uml:Class' xmi:id='cbf0c988-d894-40cc-a58a-c10be3c155b2' name='SomeClass3'>
+<packagedElement xmi:type='uml:model.Class' xmi:id='cbf0c988-d894-40cc-a58a-c10be3c155b2' name='SomeClass3'>
 </packagedElement>
-<ownedAttribute xmi:type='uml:Property' xmi:id='1601d5e0-00e6-4ce5-8ed5-c8539b2ee323' name='someAttribute3' visibility='public'>
-<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#integer'/>
+<ownedAttribute xmi:type='uml:model.Property' xmi:id='1601d5e0-00e6-4ce5-8ed5-c8539b2ee323' name='someAttribute3' visibility='public'>
+<type href='http://www.omg.org/spec/model.UML/20131001/PrimitiveTypes.xmi#integer'/>
 <defaultValue xmi:type='uml:Literalinteger' xmi:id='TODOFALSDJFLASJFASLKJD' value='69'/>
 </ownedAttribute>
 </packagedElement>
-<packagedElement xmi:type='uml:Class' xmi:id='34550fd0-e8b6-4e93-8210-20df34cbf173' name='SomeClass'>
+<packagedElement xmi:type='uml:model.Class' xmi:id='34550fd0-e8b6-4e93-8210-20df34cbf173' name='SomeClass'>
 </packagedElement>
 </uml:Model>
 </xmi:XMI>

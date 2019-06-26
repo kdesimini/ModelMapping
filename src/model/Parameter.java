@@ -1,3 +1,8 @@
+package model;
+
+import model.enums.DirectionEnum;
+import model.enums.TypeEnum;
+
 public class Parameter {
 
     private String name;
@@ -5,7 +10,7 @@ public class Parameter {
     private TypeEnum type;
     private Object defaultValue;
 
-    Parameter(String name, DirectionEnum direction, TypeEnum type) {
+    public Parameter(String name, DirectionEnum direction, TypeEnum type) {
         this.name = name;
         this.direction = direction;
         this.type = type;
