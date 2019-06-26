@@ -15,11 +15,11 @@ public class Class {
         superClassesList = new ArrayList<>();
     }
 
-    public void addAttribute (Attribute someAttribute) {
+    void addAttribute(Attribute someAttribute) {
         attributeList.add(someAttribute);
     }
 
-    public void addMethod (Method someMethod) {
+    void addMethod(Method someMethod) {
         methodList.add(someMethod);
     }
 
@@ -27,11 +27,11 @@ public class Class {
         superClassesList.add(someClass);
     }
 
-    public List<Attribute> getAttributeList() {
+    List<Attribute> getAttributeList() {
         return attributeList;
     }
 
-    public List<Method> getMethodList() {
+    List<Method> getMethodList() {
         return methodList;
     }
 
@@ -39,7 +39,7 @@ public class Class {
         return superClassesList;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 }

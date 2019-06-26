@@ -6,27 +6,27 @@ class Processor {
 
         StringBuilder string = new StringBuilder();
 
-        string.append("<packagedElement xmi:type='uml:Package' xmi:id='" + generateRandomString() +"' name='" + p.getName() + "'>\n");
+        string.append("<packagedElement xmi:type='uml:Package' xmi:id='").append(generateRandomString()).append("' name='").append(p.getName()).append("'>\n");
 
         for (Class c : p.getClassList()
         ) {
             string.append(processClass(c));
 
-            for (Attribute a : c.getAttributeList()
-            ) {
+//            for (Attribute a : c.getAttributeList()
+//            ) {
 //                    string.append(processor.processAttribute(a));
-            }
-
-            for (Method m : c.getMethodList()
-            ) {
+//            }
+//
+//            for (Method m : c.getMethodList()
+//            ) {
 //                    string.append(processor.processMethod(m));
-            }
+//            }
         }
 
         if(!p.getSubPackageList().isEmpty()){
             for (Package element: p.getSubPackageList()
                  ) {
-                string.append("<packagedElement xmi:type='uml:Package' xmi:id='" + generateRandomString() +"' name='" + element.getName() + "'>\n");
+                string.append("<packagedElement xmi:type='uml:Package' xmi:id='").append(generateRandomString()).append("' name='").append(element.getName()).append("'>\n");
             }
         }
 
@@ -37,7 +37,7 @@ class Processor {
 
         StringBuilder string = new StringBuilder();
 
-        string.append("<packagedElement xmi:type='uml:Class' xmi:id='" + generateRandomString() + "' name='" + c.getName() + "'>\n");
+        string.append("<packagedElement xmi:type='uml:Class' xmi:id='").append(generateRandomString()).append("' name='").append(c.getName()).append("'>\n");
 
         return string;
     }
@@ -58,7 +58,6 @@ class Processor {
                     (random.nextFloat() * (rightLimit - leftLimit + 1));
             buffer.append((char) randomLimitedInt);
         }
-        String generatedString = buffer.toString();
-        return generatedString;
+        return buffer.toString();
     }
 }

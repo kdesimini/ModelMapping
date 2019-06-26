@@ -5,7 +5,7 @@ public class Parameter {
     private TypeEnum type;
     private Object defaultValue;
 
-    public Parameter (String name, DirectionEnum direction, TypeEnum type) {
+    Parameter(String name, DirectionEnum direction, TypeEnum type) {
         this.name = name;
         this.direction = direction;
         this.type = type;
@@ -17,5 +17,21 @@ public class Parameter {
         this.direction = direction;
         this.type = type;
         this.defaultValue = defaultValue;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public DirectionEnum getDirection() {
+        return direction;
+    }
+
+    public TypeEnum getType() {
+        return type;
+    }
+
+    public Object getDefaultValue() {
+        return defaultValue;
     }
 }

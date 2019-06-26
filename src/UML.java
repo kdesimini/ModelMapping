@@ -7,45 +7,37 @@ public class UML {
     private List<Package> packageList;
     private String name;
 
-    public UML(String name) {
+    UML(String name) {
         this.name = name;
         classList = new ArrayList<>();
         packageList = new ArrayList<>();
     }
 
-    public void addClass(Class inputClass) {
+    void addClass(Class inputClass) {
         classList.add(inputClass);
     }
 
-    public void addPackage(Package inputPackage) {
+    void addPackage(Package inputPackage) {
         packageList.add(inputPackage);
     }
 
     public boolean hasClasses() {
-        if (classList.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !classList.isEmpty();
     }
 
     public boolean hasPackages() {
-        if (packageList.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !packageList.isEmpty();
     }
 
     public String getName() {
         return this.name;
     }
 
-    public List<Class> getClassList() {
+    List<Class> getClassList() {
         return classList;
     }
 
-    public List<Package> getPackageList() {
+    List<Package> getPackageList() {
         return packageList;
     }
 }

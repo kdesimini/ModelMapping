@@ -4,7 +4,7 @@ public class Attribute {
     private String name;
     private TypeEnum type;
 
-    public Attribute (String name, TypeEnum type) {
+    Attribute(String name, TypeEnum type) {
         this.name = name;
         this.defaultValue = null;
         this.type = type;

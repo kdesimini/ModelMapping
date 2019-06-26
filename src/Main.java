@@ -34,7 +34,7 @@ public class Main {
 
     }
 
-    public static void StringBuilder (UML inputUML) {
+    private static void StringBuilder(UML inputUML) {
 
         StringBuilder string = new StringBuilder();
         string.append("<?xml version='1.0' encoding='UTF-8'?>\n");
@@ -57,16 +57,16 @@ public class Main {
             for (Class c : inputUML.getClassList()
             ) {
                 string.append(processor.processClass(c));
-
-                for (Attribute a : c.getAttributeList()
-                ) {
+//
+//                for (Attribute a : c.getAttributeList()
+//                ) {
 //                    string.append(processor.processAttribute(a));
-                }
-
-                for (Method m : c.getMethodList()
-                ) {
+//                }
+//
+//                for (Method m : c.getMethodList()
+//                ) {
 //                    string.append(processor.processMethod(m));
-                }
+//                }
             }
 
         string.append("</uml:Model>\n");

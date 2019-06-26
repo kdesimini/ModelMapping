@@ -13,7 +13,7 @@ public class Package {
         subPackageList = new ArrayList<>();
     }
 
-    public void addClass(Class inputClass) {
+    void addClass(Class inputClass) {
         classList.add(inputClass);
     }
 
@@ -22,15 +22,15 @@ public class Package {
 
     }
     
-    public List<Class> getClassList() {
+    List<Class> getClassList() {
         return classList;
     }
 
-    public List<Package> getSubPackageList() {
+    List<Package> getSubPackageList() {
         return subPackageList;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 }

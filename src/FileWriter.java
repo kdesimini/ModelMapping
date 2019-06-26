@@ -2,9 +2,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileWriter {
+class FileWriter {
 
-    public static void writeFile(StringBuilder inputString)  {
+    static void writeFile(StringBuilder inputString) {
         FileOutputStream out = null;
         try {
             out = new FileOutputStream("file.xmi");
@@ -13,6 +13,7 @@ public class FileWriter {
         }
 
         try {
+            assert out != null;
             out.write(inputString.toString().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
