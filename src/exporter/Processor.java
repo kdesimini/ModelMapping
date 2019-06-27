@@ -3,6 +3,9 @@ package exporter;
 import model.*;
 import model.Class;
 import model.Package;
+import model.properties.AssociationProperty;
+import model.properties.ClassProperty;
+import model.properties.PrimitiveProperty;
 
 public class Processor {
 
@@ -30,15 +33,15 @@ public class Processor {
         string.append("</uml:Model>");
         string.append("</xmi:XMI>");
 
-        return string.toString().replace("'","\"");
+        return string.toString().replace("'", "\"");
     }
 
     private static String processAssociation(Association a) {
         StringBuilder string = new StringBuilder();
 
-        string.append("<packagedElement xmi:type='uml:Association' xmi:id='"+a.getId()+"'>");
-        string.append("<memberEnd xmi:idref='"+a.getSource().getId()+"'/>");
-        string.append("<memberEnd xmi:idref='"+a.getTarget().getId()+"'/>");
+        string.append("<packagedElement xmi:type='uml:Association' xmi:id='" + a.getId() + "'>");
+        string.append("<memberEnd xmi:idref='" + a.getSource().getId() + "'/>");
+        string.append("<memberEnd xmi:idref='" + a.getTarget().getId() + "'/>");
         string.append("</packagedElement>");
 
         return string.toString();
@@ -48,29 +51,31 @@ public class Processor {
         // TODO
         StringBuilder string = new StringBuilder();
 
-        string.append("<packagedElement xmi:type='uml:model.Package' xmi:id='").append(p.getId()).append("' name='").append(p.getName()).append("'>");
+        string.append("<packagedElement xmi:type='uml:Package' xmi:id='").append(p.getId()).append("' name='").append(p.getName()).append("'>");
 
         for (Class c : p.getClasses()
-                ) {
+        ) {
             string.append(processClass(c));
 
             for (Property a : c.getProperties()
-                    ) {
+            ) {
                 string.append(processProperty(a));
             }
 
             for (Method m : c.getMethods()
-                    ) {
+            ) {
 //                    string.append(processMethod(m));
             }
         }
 
-        if (!p.getSubPackages().isEmpty()) {
-            for (Package sub : p.getSubPackages()
-                    ) {
-                string.append(processPackage(sub));
-            }
+
+
+        for (Package sub : p.getSubPackages()) {
+            string.append(processPackage(sub));
         }
+
+
+        string.append("</packagedElement>");
 
         return string.toString();
     }
@@ -79,7 +84,7 @@ public class Processor {
 
         StringBuilder string = new StringBuilder();
 
-        string.append("<packagedElement xmi:type='uml:Class' xmi:id='"+c.getId()+"' name='"+c.getName()+"'>");
+        string.append("<packagedElement xmi:type='uml:Class' xmi:id='" + c.getId() + "' name='" + c.getName() + "'>");
 
         for (Property p :
                 c.getProperties()) {
@@ -96,20 +101,20 @@ public class Processor {
     private static String processProperty(Property p) throws Exception {
         StringBuilder string = new StringBuilder();
 
-        if(p instanceof PrimitiveProperty) {
-            PrimitiveProperty pp = (PrimitiveProperty)p;
-            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='"+p.getId()+"' name='"+p.getName()+"' visibility='"+p.getVisibility().toString().toLowerCase()+"'>");
-            string.append("<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#"+pp.getType().toString()+"'/>");
-            if(pp.getDefaultValue() != null) {
-                string.append("<defaultValue xmi:type='uml:Literal"+pp.getType().toString()+"' xmi:id='"+Processor.uuidGenerator()+"' value='"+pp.getDefaultValue().toString()+"'/>");
+        if (p instanceof PrimitiveProperty) {
+            PrimitiveProperty pp = (PrimitiveProperty) p;
+            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='" + p.getId() + "' name='" + p.getName() + "' visibility='" + p.getVisibility().toString().toLowerCase() + "'>");
+            string.append("<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#" + pp.getType().toString() + "'/>");
+            if (pp.getDefaultValue() != null) {
+                string.append("<defaultValue xmi:type='uml:Literal" + pp.getType().toString() + "' xmi:id='" + Processor.uuidGenerator() + "' value='" + pp.getDefaultValue().toString() + "'/>");
             }
             string.append("</ownedAttribute>");
         } else if (p instanceof AssociationProperty) {
-            AssociationProperty ap = (AssociationProperty)p;
-            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='"+p.getId()+"' name='"+p.getName()+"' visibility='"+p.getVisibility().toString().toLowerCase()+"' type='"+ap.getAssociation().getTarget().getId()+"' association='"+ap.getAssociation().getId()+"'/>");
+            AssociationProperty ap = (AssociationProperty) p;
+            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='" + p.getId() + "' name='" + p.getName() + "' visibility='" + p.getVisibility().toString().toLowerCase() + "' type='" + ap.getAssociation().getTarget().getId() + "' association='" + ap.getAssociation().getId() + "'/>");
         } else if (p instanceof ClassProperty) {
-            ClassProperty cp = (ClassProperty)p;
-            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='"+p.getId()+"' name='"+p.getName()+"' visibility='"+p.getVisibility().toString().toLowerCase()+"' type='"+cp.getType().getId()+"'/>");
+            ClassProperty cp = (ClassProperty) p;
+            string.append("<ownedAttribute xmi:type='uml:Property' xmi:id='" + p.getId() + "' name='" + p.getName() + "' visibility='" + p.getVisibility().toString().toLowerCase() + "' type='" + cp.getType().getId() + "'/>");
         } else {
             throw new Exception("A new type of property that you need to handle in processProperty!");
         }
@@ -122,6 +127,6 @@ public class Processor {
     public static String uuidGenerator() {
         //UUID uuid = UUID.randomUUID();
         //return uuid.toString();
-        return "ID"+ID_COUNTER++;
+        return "ID" + ID_COUNTER++;
     }
 }

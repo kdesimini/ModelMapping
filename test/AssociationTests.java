@@ -3,6 +3,9 @@ import model.*;
 import model.Class;
 import model.enums.TypeEnum;
 import model.enums.VisibilityEnum;
+import model.properties.AssociationProperty;
+import model.properties.ClassProperty;
+import model.properties.PrimitiveProperty;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
