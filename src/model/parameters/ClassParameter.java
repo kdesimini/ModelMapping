@@ -6,7 +6,7 @@ import model.Class;
 
 public class ClassParameter extends Parameter {
 
-    Class type;
+    private Class type;
 
     public ClassParameter (String name, DirectionEnum direction, Class type) {
         super(name, direction);

@@ -50,7 +50,6 @@ public class Processor {
     }
 
     private static String processPackage(Package p) throws Exception {
-        // TODO
         StringBuilder string = new StringBuilder();
 
         string.append("<packagedElement xmi:type='uml:Package' xmi:id='").append(p.getId()).append("' name='").append(p.getName()).append("'>");
@@ -81,12 +80,15 @@ public class Processor {
 
         string.append("<packagedElement xmi:type='uml:Class' xmi:id='" + c.getId() + "' name='" + c.getName() + "'>");
 
+        for (Class superClass : c.getSuperClasses()) {
+            string.append(processesSuperClass(superClass));
+        }
+
         for (Property p :
                 c.getProperties()) {
             string.append(processProperty(p));
         }
 
-        //Todo
         for (Operation o :
                 c.getOperations()) {
             string.append(processOperation(o));
@@ -96,11 +98,19 @@ public class Processor {
             string.append(processesNestedClass(nestedClass));
         }
 
+
+
         string.append("</packagedElement>");
 
         return string.toString();
     }
 
+
+    private static String processesSuperClass(Class superClass) {
+        StringBuilder string = new StringBuilder();
+        string.append("<generalization xmi:type='uml:Generalization' xmi:id='" + Processor.uuidGenerator() + "' general='" + superClass.getId() + "'/>");
+        return string.toString();
+    }
 
     private static String processesNestedClass(Class c) throws Exception {
         StringBuilder string = new StringBuilder();
@@ -162,6 +172,7 @@ public class Processor {
         }
         return string.toString();
     }
+
     private static String processProperty(Property p) throws Exception {
         StringBuilder string = new StringBuilder();
 

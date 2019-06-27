@@ -11,10 +11,10 @@ public class Association {
     private String id;
     private String name;
 
-    Class source;
-    Class target;
+    private Class source;
+    private Class target;
 
-    List<AssociationProperty> properties;
+    private List<AssociationProperty> properties;
 
     public Association(String name, Class source, Class target) {
         id = Processor.uuidGenerator();

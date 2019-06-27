@@ -6,7 +6,7 @@ import model.enums.VisibilityEnum;
 
 public class ClassProperty extends Property {
 
-    Class type;
+    private Class type;
 
     public ClassProperty(String name, VisibilityEnum visibility, Class type) {
         super(name, visibility);
