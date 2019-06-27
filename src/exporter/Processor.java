@@ -64,18 +64,11 @@ public class Processor {
                 string.append(processProperty(a));
             }
 
-            for (Operation m : c.getOperations()
-            ) {
-//                    string.append(processMethod(m));
-            }
         }
-
-
 
         for (Package sub : p.getSubPackages()) {
             string.append(processPackage(sub));
         }
-
 
         string.append("</packagedElement>");
 
