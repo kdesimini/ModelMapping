@@ -1,5 +1,6 @@
-package model;
+package model.properties;
 
+import model.Property;
 import model.enums.TypeEnum;
 import model.enums.VisibilityEnum;
 

@@ -1,7 +1,6 @@
 package model;
 
 import exporter.Processor;
-import model.enums.TypeEnum;
 import model.enums.VisibilityEnum;
 
 public abstract class Property {

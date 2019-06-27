@@ -1,5 +1,7 @@
-package model;
+package model.properties;
 
+import model.Class;
+import model.Property;
 import model.enums.VisibilityEnum;
 
 public class ClassProperty extends Property {

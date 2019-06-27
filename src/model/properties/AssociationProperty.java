@@ -1,5 +1,7 @@
-package model;
+package model.properties;
 
+import model.Association;
+import model.Property;
 import model.enums.VisibilityEnum;
 
 public class AssociationProperty extends Property {

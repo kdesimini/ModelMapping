@@ -1,6 +1,7 @@
 package model;
 
 import exporter.Processor;
+import model.properties.AssociationProperty;
 
 import java.util.ArrayList;
 import java.util.List;
