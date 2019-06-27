@@ -23,11 +23,8 @@ public class Package {
         classes.add(inputClass);
     }
 
-    public void addSubPackage(Package inputPackage) {
-        subPackages.add(inputPackage);
+    public void addSubPackage(Package inputPackage) { subPackages.add(inputPackage); }
 
-    }
-    
     public List<Class> getClasses() {
         return classes;
     }

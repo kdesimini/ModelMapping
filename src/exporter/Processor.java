@@ -23,11 +23,9 @@ public class Processor {
         for (Package p : inputUML.getPackages()) {
             string.append(processPackage(p));
         }
-
         for (Class c : inputUML.getClasses()) {
             string.append(processClass(c));
         }
-
         for (Association a : inputUML.getAssociations()) {
             string.append(processAssociation(a));
         }
@@ -54,23 +52,16 @@ public class Processor {
 
         string.append("<packagedElement xmi:type='uml:Package' xmi:id='").append(p.getId()).append("' name='").append(p.getName()).append("'>");
 
-        for (Class c : p.getClasses()
-        ) {
+        for (Class c : p.getClasses()) {
             string.append(processClass(c));
-
-            for (Property a : c.getProperties()
-            ) {
+            for (Property a : c.getProperties()) {
                 string.append(processProperty(a));
             }
-
         }
-
         for (Package sub : p.getSubPackages()) {
             string.append(processPackage(sub));
         }
-
         string.append("</packagedElement>");
-
         return string.toString();
     }
 
@@ -83,22 +74,15 @@ public class Processor {
         for (Class superClass : c.getSuperClasses()) {
             string.append(processesSuperClass(superClass));
         }
-
-        for (Property p :
-                c.getProperties()) {
+        for (Property p : c.getProperties()) {
             string.append(processProperty(p));
         }
-
-        for (Operation o :
-                c.getOperations()) {
+        for (Operation o : c.getOperations()) {
             string.append(processOperation(o));
         }
-
         for (Class nestedClass : c.getNestedClasses()) {
             string.append(processesNestedClass(nestedClass));
         }
-
-
 
         string.append("</packagedElement>");
 
@@ -117,16 +101,12 @@ public class Processor {
 
         string.append("<nestedClassifier xmi:type='uml:Class' xmi:id='" + c.getId() + "' name='" + c.getName() + "'>");
 
-        for (Property p :
-                c.getProperties()) {
+        for (Property p : c.getProperties()) {
             string.append(processProperty(p));
         }
-
-        for (Operation o :
-                c.getOperations()) {
+        for (Operation o : c.getOperations()) {
             string.append(processOperation(o));
         }
-
         for (Class nestedClass : c.getNestedClasses()) {
             string.append(processesNestedClass(nestedClass));
         }
@@ -141,7 +121,7 @@ public class Processor {
 
         string.append("<ownedOperation xmi:type='uml:Operation' xmi:id='" + o.getId() + "' name='" + o.getName() + "' visibility='" + o.getVisibility().toString().toLowerCase() + "'>");
 
-        for (Parameter p: o.getParameters()) {
+        for (Parameter p : o.getParameters()) {
             string.append(processParameter(p));
         }
 
@@ -157,11 +137,9 @@ public class Processor {
             PrimitiveParameter pParam = (PrimitiveParameter) param;
             string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public'>"); // Todo Check if visibility matters here
             string.append("<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#" + pParam.getType().toString() + "'/>");
-
             if (pParam.getDefaultValue() != null) {
                 string.append("<defaultValue xmi:type='uml:Literal" + pParam.getType().toString() + "' xmi:id='" + Processor.uuidGenerator() + "' value='" + pParam.getDefaultValue().toString() + "'/>");
             }
-
             string.append("</ownedParameter>");
         } else if (param instanceof ClassParameter) {
             ClassParameter cParam = (ClassParameter) param;

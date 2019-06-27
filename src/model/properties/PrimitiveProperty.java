@@ -11,7 +11,6 @@ public class PrimitiveProperty extends Property {
 
     public PrimitiveProperty(String name, VisibilityEnum visibility, TypeEnum type, Object defaultValue) {
         super(name,visibility);
-
         this.type = type;
         this.defaultValue = defaultValue;
     }

@@ -24,7 +24,5 @@ public abstract class Parameter {
         return direction;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 }

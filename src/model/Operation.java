@@ -21,12 +21,12 @@ public class Operation {
         id = Processor.uuidGenerator();
     }
 
-    public Operation setReturnType (TypeEnum type) {
+    public Operation setReturnType(TypeEnum type) {
         returnType = type;
         return this;
     }
 
-    public Operation addParameter (Parameter parameter) {
+    public Operation addParameter(Parameter parameter) {
         parameters.add(parameter);
         return this;
     }

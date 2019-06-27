@@ -10,7 +10,6 @@ public class Association {
 
     private String id;
     private String name;
-
     private Class source;
     private Class target;
 
