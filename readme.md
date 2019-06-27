@@ -1,4 +1,1 @@
-### ToDo:
-
-- [ ] Add String Builder Functionality
-- [ ] 
+## The Super Cool Read-Me.

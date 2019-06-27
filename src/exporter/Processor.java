@@ -13,8 +13,8 @@ public class Processor {
 
         StringBuilder string = new StringBuilder();
         string.append("<?xml version='1.0' encoding='UTF-8'?>");
-        string.append("<xmi:XMI xmlns:uml='http://www.omg.org/spec/model.UML/20131001'");
-        string.append("xmlns:StandardProfile='http://www.omg.org/spec/model.UML/20131001/StandardProfile'");
+        string.append("<xmi:XMI xmlns:uml='http://www.omg.org/spec/UML/20131001'");
+        string.append("xmlns:StandardProfile='http://www.omg.org/spec/UML/20131001/StandardProfile'");
         string.append("xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>");
         string.append("<uml:Model xmi:type='uml:Model' xmi:id='" + inputUML.getId() + "' name='" + inputUML.getName() + "'>");
 
@@ -62,7 +62,7 @@ public class Processor {
                 string.append(processProperty(a));
             }
 
-            for (Method m : c.getMethods()
+            for (Operation m : c.getOperations()
             ) {
 //                    string.append(processMethod(m));
             }
@@ -91,9 +91,55 @@ public class Processor {
             string.append(processProperty(p));
         }
 
-        // TODO other class elements
+        for (Operation o :
+                c.getOperations()) {
+            string.append(processOperation(o));
+        }
+
+        for (Class nestedClass : c.getNestedClasses()) {
+            string.append(processesNestedClass(nestedClass));
+        }
 
         string.append("</packagedElement>");
+
+        return string.toString();
+    }
+
+
+    private static String processesNestedClass(Class c) throws Exception {
+        StringBuilder string = new StringBuilder();
+
+        string.append("<nestedClassifier xmi:type='uml:Class' xmi:id='" + c.getId() + "' name='" + c.getName() + "'>");
+
+        for (Property p :
+                c.getProperties()) {
+            string.append(processProperty(p));
+        }
+
+        for (Operation o :
+                c.getOperations()) {
+            string.append(processOperation(o));
+        }
+
+        for (Class nestedClass : c.getNestedClasses()) {
+            string.append(processesNestedClass(nestedClass));
+        }
+
+        string.append("</nestedClassifier>");
+
+        return string.toString();
+    }
+
+    private static String processOperation(Operation o) {
+        StringBuilder string = new StringBuilder();
+
+        string.append("<ownedOperation xmi:type='uml:Operation' xmi:id='" + o.getId() + "' name='" + o.getName() + "' visibility='" + o.getVisibility().toString().toLowerCase() + "'>");
+
+        for (Parameter p: o.getParameters()) {
+//            string.append(processParameter(p));
+        }
+
+        string.append("</ownedOperation>");
 
         return string.toString();
     }
