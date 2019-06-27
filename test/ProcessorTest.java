@@ -1,8 +1,12 @@
 import exporter.Processor;
+import model.*;
 import model.Class;
-import model.UML;
 import model.Package;
-import org.junit.Before;
+import model.enums.DirectionEnum;
+import model.enums.TypeEnum;
+import model.enums.VisibilityEnum;
+import model.parameters.ClassParameter;
+import model.parameters.PrimitiveParameter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,6 +57,35 @@ class ProcessorTest {
         try {
             String result = Processor.processUML(uml);
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><xmi:XMI xmlns:uml=\"http://www.omg.org/spec/UML/20131001\"xmlns:StandardProfile=\"http://www.omg.org/spec/UML/20131001/StandardProfile\"xmlns:xmi=\"http://www.omg.org/spec/XMI/20131001\"><uml:Model xmi:type=\"uml:Model\" xmi:id=\"ID0\" name=\"uml\"><packagedElement xmi:type=\"uml:Class\" xmi:id=\"ID1\" name=\"Class1\"><nestedClassifier xmi:type=\"uml:Class\" xmi:id=\"ID3\" name=\"NestedClass\"></nestedClassifier></packagedElement><packagedElement xmi:type=\"uml:Class\" xmi:id=\"ID2\" name=\"Class2\"></packagedElement></uml:Model></xmi:XMI>";
+            Assertions.assertEquals(expected,result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    void processParameters() {
+
+        UML uml = new UML("uml");
+        Operation operation = new Operation("operation1", VisibilityEnum.Public);
+        Class Class1 = new Class("Class1");
+
+        ClassParameter classParameter = new ClassParameter("classParameter", DirectionEnum.In, Class1);
+        PrimitiveParameter primitiveParameter = new PrimitiveParameter("primitiveParameter", DirectionEnum.In, TypeEnum.Boolean);
+        PrimitiveParameter primitiveParameterWithValue = new PrimitiveParameter("primitiveParameter", DirectionEnum.In, TypeEnum.Integer, 99);
+
+        Class1.addOperation(operation);
+
+        operation.addParameter(classParameter);
+        operation.addParameter(primitiveParameter);
+        operation.addParameter(primitiveParameterWithValue);
+
+        uml.addClass(Class1);
+
+        try {
+            String result = Processor.processUML(uml);
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><xmi:XMI xmlns:uml=\"http://www.omg.org/spec/UML/20131001\"xmlns:StandardProfile=\"http://www.omg.org/spec/UML/20131001/StandardProfile\"xmlns:xmi=\"http://www.omg.org/spec/XMI/20131001\"><uml:Model xmi:type=\"uml:Model\" xmi:id=\"ID0\" name=\"uml\"><packagedElement xmi:type=\"uml:Class\" xmi:id=\"ID2\" name=\"Class1\"><ownedOperation xmi:type=\"uml:Operation\" xmi:id=\"ID1\" name=\"operation1\" visibility=\"public\"><ownedParameter xmi:type=\"uml:Parameter\" xmi:id=\"ID3\" name=\"classParameter\" visibility=\"public\" type=\"ID2\"/><ownedParameter xmi:type=\"uml:Parameter\" xmi:id=\"ID4\" name=\"primitiveParameter\" visibility=\"public\"><type href=\"http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Boolean\"/></ownedParameter><ownedParameter xmi:type=\"uml:Parameter\" xmi:id=\"ID5\" name=\"primitiveParameter\" visibility=\"public\"><type href=\"http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#Integer\"/><defaultValue xmi:type=\"uml:LiteralInteger\" xmi:id=\"ID6\" value=\"99\"/></ownedParameter></ownedOperation></packagedElement></uml:Model></xmi:XMI>";
             Assertions.assertEquals(expected,result);
         } catch (Exception e) {
             e.printStackTrace();

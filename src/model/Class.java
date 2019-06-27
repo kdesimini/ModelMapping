@@ -27,7 +27,7 @@ public class Class {
         properties.add(someProperty);
     }
 
-    public void addMethod(Operation someOperation) {
+    public void addOperation(Operation someOperation) {
         operations.add(someOperation);
     }
 

@@ -1,27 +1,19 @@
 package model;
 
+import exporter.Processor;
 import model.enums.DirectionEnum;
 import model.enums.TypeEnum;
 
-public class Parameter {
+public abstract class Parameter {
 
     private String name;
     private DirectionEnum direction;
-    private TypeEnum type;
-    private Object defaultValue;
+    private String id;
 
-    public Parameter(String name, DirectionEnum direction, TypeEnum type) {
+    public Parameter(String name, DirectionEnum direction) {
         this.name = name;
         this.direction = direction;
-        this.type = type;
-        this.defaultValue = null;
-    }
-
-    public Parameter (String name, DirectionEnum direction, TypeEnum type, Object defaultValue) {
-        this.name = name;
-        this.direction = direction;
-        this.type = type;
-        this.defaultValue = defaultValue;
+        id = Processor.uuidGenerator();
     }
 
     public String getName() {
@@ -32,11 +24,7 @@ public class Parameter {
         return direction;
     }
 
-    public TypeEnum getType() {
-        return type;
-    }
-
-    public Object getDefaultValue() {
-        return defaultValue;
+    public String getId() {
+        return id;
     }
 }

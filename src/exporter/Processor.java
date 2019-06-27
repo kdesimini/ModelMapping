@@ -3,6 +3,8 @@ package exporter;
 import model.*;
 import model.Class;
 import model.Package;
+import model.parameters.ClassParameter;
+import model.parameters.PrimitiveParameter;
 import model.properties.AssociationProperty;
 import model.properties.ClassProperty;
 import model.properties.PrimitiveProperty;
@@ -91,6 +93,7 @@ public class Processor {
             string.append(processProperty(p));
         }
 
+        //Todo
         for (Operation o :
                 c.getOperations()) {
             string.append(processOperation(o));
@@ -130,13 +133,13 @@ public class Processor {
         return string.toString();
     }
 
-    private static String processOperation(Operation o) {
+    private static String processOperation(Operation o) throws Exception {
         StringBuilder string = new StringBuilder();
 
         string.append("<ownedOperation xmi:type='uml:Operation' xmi:id='" + o.getId() + "' name='" + o.getName() + "' visibility='" + o.getVisibility().toString().toLowerCase() + "'>");
 
         for (Parameter p: o.getParameters()) {
-//            string.append(processParameter(p));
+            string.append(processParameter(p));
         }
 
         string.append("</ownedOperation>");
@@ -144,6 +147,28 @@ public class Processor {
         return string.toString();
     }
 
+    private static String processParameter(Parameter param) throws Exception {
+        StringBuilder string = new StringBuilder();
+
+        if (param instanceof PrimitiveParameter) {
+            PrimitiveParameter pParam = (PrimitiveParameter) param;
+            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public'>"); // Todo Check if visibility matters here
+            string.append("<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#" + pParam.getType().toString() + "'/>");
+
+            if (pParam.getDefaultValue() != null) {
+                string.append("<defaultValue xmi:type='uml:Literal" + pParam.getType().toString() + "' xmi:id='" + Processor.uuidGenerator() + "' value='" + pParam.getDefaultValue().toString() + "'/>");
+            }
+
+            string.append("</ownedParameter>");
+        } else if (param instanceof ClassParameter) {
+            ClassParameter cParam = (ClassParameter) param;
+            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public' type='" + cParam.getType().getId() + "'/>");
+        } else {
+            throw new Exception("A new type of parameter that you need to handle in processParameter!");
+
+        }
+        return string.toString();
+    }
     private static String processProperty(Property p) throws Exception {
         StringBuilder string = new StringBuilder();
 

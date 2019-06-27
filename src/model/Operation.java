@@ -1,5 +1,6 @@
 package model;
 
+import exporter.Processor;
 import model.enums.TypeEnum;
 import model.enums.VisibilityEnum;
 
@@ -13,9 +14,11 @@ public class Operation {
     private VisibilityEnum visibility;
     private String id;
 
-    public Operation(String name) {
+    public Operation(String name, VisibilityEnum visibility) {
         parameters = new ArrayList<>();
         this.name = name;
+        this.visibility = visibility;
+        id = Processor.uuidGenerator();
     }
 
     public Operation setReturnType (TypeEnum type) {
