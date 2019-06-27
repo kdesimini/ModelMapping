@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Method {
-    private List<Parameter> parameterList;
+    private List<Parameter> parameters;
     private TypeEnum returnType;
     private String name;
 
     public Method (String name) {
-        parameterList = new ArrayList<>();
+        parameters = new ArrayList<>();
         this.name = name;
     }
 
@@ -21,12 +21,12 @@ public class Method {
     }
 
     public Method addParameter (Parameter parameter) {
-        parameterList.add(parameter);
+        parameters.add(parameter);
         return this;
     }
 
-    public List<Parameter> getParameterList() {
-        return parameterList;
+    public List<Parameter> getParameters() {
+        return parameters;
     }
 
     public TypeEnum getReturnType() {

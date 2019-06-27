@@ -4,8 +4,6 @@ import model.*;
 import model.Class;
 import model.Package;
 
-import java.util.UUID;
-
 public class Processor {
 
     public static String processUML(UML inputUML) throws Exception {
@@ -17,11 +15,11 @@ public class Processor {
         string.append("xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>");
         string.append("<uml:Model xmi:type='uml:Model' xmi:id='" + inputUML.getId() + "' name='" + inputUML.getName() + "'>");
 
-        for (Package p : inputUML.getPackageList()) {
+        for (Package p : inputUML.getPackages()) {
             string.append(processPackage(p));
         }
 
-        for (Class c : inputUML.getClassList()) {
+        for (Class c : inputUML.getClasses()) {
             string.append(processClass(c));
         }
 
@@ -52,23 +50,23 @@ public class Processor {
 
         string.append("<packagedElement xmi:type='uml:model.Package' xmi:id='").append(p.getId()).append("' name='").append(p.getName()).append("'>");
 
-        for (Class c : p.getClassList()
+        for (Class c : p.getClasses()
                 ) {
             string.append(processClass(c));
 
-            for (Property a : c.getPropertyList()
+            for (Property a : c.getProperties()
                     ) {
                 string.append(processProperty(a));
             }
 
-            for (Method m : c.getMethodList()
+            for (Method m : c.getMethods()
                     ) {
 //                    string.append(processMethod(m));
             }
         }
 
-        if (!p.getSubPackageList().isEmpty()) {
-            for (Package sub : p.getSubPackageList()
+        if (!p.getSubPackages().isEmpty()) {
+            for (Package sub : p.getSubPackages()
                     ) {
                 string.append(processPackage(sub));
             }
@@ -84,7 +82,7 @@ public class Processor {
         string.append("<packagedElement xmi:type='uml:Class' xmi:id='"+c.getId()+"' name='"+c.getName()+"'>");
 
         for (Property p :
-                c.getPropertyList()) {
+                c.getProperties()) {
             string.append(processProperty(p));
         }
 

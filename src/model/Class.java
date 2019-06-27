@@ -7,42 +7,42 @@ import java.util.List;
 
 public class Class {
 
-    private List<Property> propertyList;
-    private List<Method> methodList;
-    private List<Class> superClassesList;
+    private List<Property> properties;
+    private List<Method> methods;
+    private List<Class> superClasses;
     private String name;
     private String id;
 
     public Class(String name) {
         id = Processor.uuidGenerator();
         this.name = name;
-        propertyList = new ArrayList<>();
-        methodList = new ArrayList<>();
-        superClassesList = new ArrayList<>();
+        properties = new ArrayList<>();
+        methods = new ArrayList<>();
+        superClasses = new ArrayList<>();
     }
 
     public void addProperty(Property someProperty) {
-        propertyList.add(someProperty);
+        properties.add(someProperty);
     }
 
     public void addMethod(Method someMethod) {
-        methodList.add(someMethod);
+        methods.add(someMethod);
     }
 
     public void addSuperClass (Class someClass) {
-        superClassesList.add(someClass);
+        superClasses.add(someClass);
     }
 
-    public List<Property> getPropertyList() {
-        return propertyList;
+    public List<Property> getProperties() {
+        return properties;
     }
 
-    public List<Method> getMethodList() {
-        return methodList;
+    public List<Method> getMethods() {
+        return methods;
     }
 
-    public List<Class> getSuperClassesList() {
-        return superClassesList;
+    public List<Class> getSuperClasses() {
+        return superClasses;
     }
 
     public String getName() {

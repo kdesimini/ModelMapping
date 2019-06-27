@@ -8,21 +8,21 @@ import java.util.List;
 public class UML {
 
     private String id;
-    private List<Class> classList;
-    private List<Package> packageList;
+    private List<Class> classes;
+    private List<Package> packages;
     private List<Association> associations;
     private String name;
 
     public UML(String name) {
         id = Processor.uuidGenerator();
         this.name = name;
-        classList = new ArrayList<>();
-        packageList = new ArrayList<>();
+        classes = new ArrayList<>();
+        packages = new ArrayList<>();
         associations = new ArrayList<>();
     }
 
     public void addClass(Class inputClass) {
-        classList.add(inputClass);
+        classes.add(inputClass);
     }
 
     public void addAssociation(Association association) {
@@ -30,7 +30,7 @@ public class UML {
     }
 
     public void addPackage(Package inputPackage) {
-        packageList.add(inputPackage);
+        packages.add(inputPackage);
     }
 
     public String getId() {
@@ -41,12 +41,12 @@ public class UML {
         return this.name;
     }
 
-    public List<Class> getClassList() {
-        return classList;
+    public List<Class> getClasses() {
+        return classes;
     }
 
-    public List<Package> getPackageList() {
-        return packageList;
+    public List<Package> getPackages() {
+        return packages;
     }
 
     public List<Association> getAssociations() {
