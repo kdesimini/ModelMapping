@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Type;
+
 class ProcessorTest {
 
     @BeforeEach
@@ -155,5 +157,32 @@ class ProcessorTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    void TestComprehensiveExample() {
+        UML uml = new UML("uml");
+        Package package1 = new Package("package1");
+        Class Class1 = new Class("Class1");
+        Operation someOperation = new Operation("someOperation", VisibilityEnum.Private);
+        PrimitiveProperty pp = new PrimitiveProperty("someProperty", VisibilityEnum.Private, TypeEnum.String, "hellomate");
+        PrimitiveParameter unnamed1 = new PrimitiveParameter("unnamed1", DirectionEnum.InOut, TypeEnum.Integer);
+        PrimitiveParameter returnValue = new PrimitiveParameter("return", DirectionEnum.Return, TypeEnum.Boolean);
+
+        uml.addPackage(package1);
+        package1.addClass(Class1);
+        Class1.addOperation(someOperation);
+        Class1.addProperty(pp);
+
+        someOperation.addParameter(unnamed1);
+        someOperation.addParameter(returnValue);
+
+        try {
+            String result = Processor.processUML(uml);
+            String expected = "";
+            Assertions.assertEquals(expected,result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

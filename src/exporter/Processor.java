@@ -135,7 +135,7 @@ public class Processor {
 
         if (param instanceof PrimitiveParameter) {
             PrimitiveParameter pParam = (PrimitiveParameter) param;
-            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public'>"); // Todo Check if visibility matters here
+            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public' direction='" + param.getDirection().toString().toLowerCase() + "'>"); // Todo Check if visibility matters here
             string.append("<type href='http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#" + pParam.getType().toString() + "'/>");
             if (pParam.getDefaultValue() != null) {
                 string.append("<defaultValue xmi:type='uml:Literal" + pParam.getType().toString() + "' xmi:id='" + Processor.uuidGenerator() + "' value='" + pParam.getDefaultValue().toString() + "'/>");
@@ -143,7 +143,7 @@ public class Processor {
             string.append("</ownedParameter>");
         } else if (param instanceof ClassParameter) {
             ClassParameter cParam = (ClassParameter) param;
-            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public' type='" + cParam.getType().getId() + "'/>");
+            string.append("<ownedParameter xmi:type='uml:Parameter' xmi:id='" + param.getId() + "' name='" + param.getName() + "' visibility='public' type='" + cParam.getType().getId() + "' direction='" + param.getDirection().toString().toLowerCase() + "'/>");
         } else {
             throw new Exception("A new type of parameter that you need to handle in processParameter!");
 
