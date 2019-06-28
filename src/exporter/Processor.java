@@ -54,9 +54,6 @@ public class Processor {
 
         for (Class c : p.getClasses()) {
             string.append(processClass(c));
-            for (Property a : c.getProperties()) {
-                string.append(processProperty(a));
-            }
         }
         for (Package sub : p.getSubPackages()) {
             string.append(processPackage(sub));
