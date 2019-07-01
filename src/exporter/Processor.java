@@ -71,15 +71,7 @@ public class Processor {
         for (Class superClass : c.getSuperClasses()) {
             string.append(processesSuperClass(superClass));
         }
-        for (Property p : c.getProperties()) {
-            string.append(processProperty(p));
-        }
-        for (Operation o : c.getOperations()) {
-            string.append(processOperation(o));
-        }
-        for (Class nestedClass : c.getNestedClasses()) {
-            string.append(processesNestedClass(nestedClass));
-        }
+        processClassContents(c, string);
 
         string.append("</packagedElement>");
 
@@ -98,6 +90,14 @@ public class Processor {
 
         string.append("<nestedClassifier xmi:type='uml:Class' xmi:id='" + c.getId() + "' name='" + c.getName() + "'>");
 
+        processClassContents(c, string);
+
+        string.append("</nestedClassifier>");
+
+        return string.toString();
+    }
+
+    private static void processClassContents(Class c, StringBuilder string) throws Exception {
         for (Property p : c.getProperties()) {
             string.append(processProperty(p));
         }
@@ -107,10 +107,6 @@ public class Processor {
         for (Class nestedClass : c.getNestedClasses()) {
             string.append(processesNestedClass(nestedClass));
         }
-
-        string.append("</nestedClassifier>");
-
-        return string.toString();
     }
 
     private static String processOperation(Operation o) throws Exception {
