@@ -70,6 +70,24 @@ class ProcessorTest {
     }
 
     @Test
+    void TestProcessEmptyClass() {
+
+        UML uml = new UML("uml");
+        Class SomeClass = new Class("SomeClass");
+
+        uml.addClass(SomeClass);
+
+        try {
+            String result = Processor.processUML(uml);
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><xmi:XMI xmlns:uml=\"http://www.omg.org/spec/UML/20131001\" xmlns:StandardProfile=\"http://www.omg.org/spec/UML/20131001/StandardProfile\" xmlns:xmi=\"http://www.omg.org/spec/XMI/20131001\"><uml:Model xmi:type=\"uml:Model\" xmi:id=\"ID0\" name=\"uml\"><packagedElement xmi:type=\"uml:Class\" xmi:id=\"ID1\" name=\"SomeClass\"></packagedElement></uml:Model></xmi:XMI>";
+            Assertions.assertEquals(expected,result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
     void processParameters() {
 
         UML uml = new UML("uml");
@@ -185,4 +203,6 @@ class ProcessorTest {
             e.printStackTrace();
         }
     }
+
+
 }
