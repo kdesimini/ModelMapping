@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Operation {
     private List<Parameter> parameters;
-    private TypeEnum returnType;
     private String name;
     private VisibilityEnum visibility;
     private String id;
@@ -21,11 +20,6 @@ public class Operation {
         id = Processor.uuidGenerator();
     }
 
-    public Operation setReturnType(TypeEnum type) {
-        returnType = type;
-        return this;
-    }
-
     public Operation addParameter(Parameter parameter) {
         parameters.add(parameter);
         return this;
@@ -35,9 +29,6 @@ public class Operation {
         return parameters;
     }
 
-    public TypeEnum getReturnType() {
-        return returnType;
-    }
 
     public String getName() {
         return name;
