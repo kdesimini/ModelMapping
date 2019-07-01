@@ -88,6 +88,24 @@ class ProcessorTest {
     }
 
     @Test
+    void TestProcessPrimitiveStringProperty() {
+        UML uml = new UML("uml");
+        Class SomeClass = new Class("SomeClass");
+        PrimitiveProperty somePP = new PrimitiveProperty("someAttribute", VisibilityEnum.Private, TypeEnum.String,null);
+
+        SomeClass.addProperty(somePP);
+        uml.addClass(SomeClass);
+
+        try {
+            String result = Processor.processUML(uml);
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><xmi:XMI xmlns:uml=\"http://www.omg.org/spec/UML/20131001\" xmlns:StandardProfile=\"http://www.omg.org/spec/UML/20131001/StandardProfile\" xmlns:xmi=\"http://www.omg.org/spec/XMI/20131001\"><uml:Model xmi:type=\"uml:Model\" xmi:id=\"ID0\" name=\"uml\"><packagedElement xmi:type=\"uml:Class\" xmi:id=\"ID1\" name=\"SomeClass\"><ownedAttribute xmi:type=\"uml:Property\" xmi:id=\"ID2\" name=\"someAttribute\" visibility=\"private\"><type href=\"http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi#String\"/></ownedAttribute></packagedElement></uml:Model></xmi:XMI>";
+            Assertions.assertEquals(expected,result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     void processParameters() {
 
         UML uml = new UML("uml");
