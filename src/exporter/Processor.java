@@ -16,8 +16,8 @@ public class Processor {
         StringBuilder string = new StringBuilder();
         string.append("<?xml version='1.0' encoding='UTF-8'?>");
         string.append("<xmi:XMI xmlns:uml='http://www.omg.org/spec/UML/20131001'");
-        string.append("xmlns:StandardProfile='http://www.omg.org/spec/UML/20131001/StandardProfile'");
-        string.append("xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>");
+        string.append(" xmlns:StandardProfile='http://www.omg.org/spec/UML/20131001/StandardProfile'");
+        string.append(" xmlns:xmi='http://www.omg.org/spec/XMI/20131001'>");
         string.append("<uml:Model xmi:type='uml:Model' xmi:id='" + inputUML.getId() + "' name='" + inputUML.getName() + "'>");
 
         for (Package p : inputUML.getPackages()) {
